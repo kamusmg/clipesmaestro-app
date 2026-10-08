@@ -11,3 +11,5 @@ h2 { font-size: 20px; margin-top: 28px; }
 p, li { color: var(--texto); }
 small { color: var(--apagado); }
 a { color: #ff8fb0; }
+.yt { background: #1a1416; border-left: 4px solid #ff0000; padding: 10px 12px; border-radius: 6px; }
+.ytlogo { display: inline-block; background: #ff0000; color: #fff; font-weight: 800; padding: 1px 8px; border-radius: 6px; margin-right: 6px; }
