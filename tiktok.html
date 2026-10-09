@@ -1,0 +1,21 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="estilo.css"><title>Login TikTok - ClipesMaestro</title></head><body><header><a href="./">CLIPESMAESTRO</a><nav><a href="./">Início</a><a href="privacidade.html">Política de Privacidade</a><a href="termos.html">Termos de Serviço</a></nav></header><main>
+<h1>Login com o TikTok</h1>
+<p id="msg">Lendo a resposta do TikTok...</p>
+<p><code id="codigo"></code></p>
+<p><button id="copiar" hidden>Copiar código</button></p>
+<p><small>Esta página só mostra o código de autorização que o TikTok devolve. Nada é guardado aqui: o código é colado no programa ClipesMaestro, no computador do criador, e vale por poucos minutos.</small></p>
+</main>
+<script>
+const q = new URLSearchParams(location.search);
+const msg = document.getElementById("msg"), cod = document.getElementById("codigo"), btn = document.getElementById("copiar");
+if (q.get("error")) {
+  msg.textContent = "O TikTok recusou o login: " + q.get("error") + " " + (q.get("error_description") || "");
+} else if (q.get("code")) {
+  msg.textContent = "Login feito. Copie o código abaixo e cole no ClipesMaestro:";
+  cod.textContent = q.get("code");
+  btn.hidden = false;
+  btn.onclick = () => navigator.clipboard.writeText(q.get("code")).then(() => { btn.textContent = "Copiado!"; });
+} else {
+  msg.textContent = "Nenhum código recebido. Abra esta página pelo login do ClipesMaestro.";
+}
+</script></body></html>
